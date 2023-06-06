@@ -1,0 +1,50 @@
+body {
+    margin: 50px 250px;
+}
+
+span {
+    text-decoration: none;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  margin: 50px 0;
+}
+
+.columns, .rows {
+  display: flex;
+  border-top: 1px solid #000;
+}
+
+.header, .row-1, .row-3, .download {
+  font-weight: bold;
+  position: static;
+  text-align: center;
+}
+
+.row-1 {
+    border-top: 1px solid #000;
+    font-weight: normal;
+}
+
+.column, .row {
+  flex: 1;
+  padding: 5px;
+  border-left: 1px solid #000;
+  white-space: normal;
+}
+
+.column-2, .row-2 {
+    flex: 3;
+}
+
+.row-3 {
+    font-weight: normal;
+}

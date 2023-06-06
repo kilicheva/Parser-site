@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" href= "static/css/style.css">
+    <meta http-equiv="refresh" content="10" />
+</head>
+<body>
+    <h1 class="header"><a href="https://vc.ru/popular/">Парсинг данных с vc.ru</a></h1>
+    <p class="download"><a href="/download">Скачать</a></p>
+    <div class="table" id="table">
+        <div class="columns header">
+            <div class="column-2 column">Блок текста из статьи</div>
+            <div class="column-3 column">Форматирование блока текста</div>
+        </div>
+        {% for link in data  %}
+        <div class="row-1 row"><a href="{{ link }}"><span>Ссылка на статью:</span> {{ link }}</a></div>
+        {% for text in data[link]  %}
+        <div class="rows">
+                <div class="row-2 row">{{ text }}</div>
+                <div class="row-3 row">{{ data[link][text] }}</div>
+        </div>
+        {% endfor %}
+        {% endfor %}
+    </div>
+
+
+ <script>
+   setInterval(function()
+   {
+   $('#table').load(document.URL +  ' #table');
+   }, 1)
+ </script>
+</body>
+</html>
