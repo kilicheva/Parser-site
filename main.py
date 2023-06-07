@@ -1,7 +1,3 @@
-'''
-install packages
-pip install requests beautifulsoup4 xlml aiohttp
-'''
 import asyncio
 import csv
 import json

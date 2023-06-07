@@ -4,15 +4,18 @@ from flask import Flask, render_template, Response, send_file
 
 app = Flask(__name__)
 
+
 async def load_data():
     with open("data.json", "r") as file:
         return json.load(file)
+
 
 @app.route('/')
 def index():
     data = asyncio.run(load_data())
     print(data)
     return render_template('index.html', data=data)
+
 
 @app.route('/updates')
 def updates():
@@ -21,6 +24,7 @@ def updates():
         yield f"data: {json.dumps(data)}\n\n"
 
     return Response(generate(), mimetype='text/event-stream')
+
 
 @app.route('/download')
 def download_file():
