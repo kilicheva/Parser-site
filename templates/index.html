@@ -8,14 +8,24 @@
 </head>
 <body>
     <h1 class="header"><a href="https://vc.ru/popular/">Парсинг данных с vc.ru</a></h1>
-    <p class="download"><a href="/download">Скачать</a></p>
+    {% for link in data  %}
+        {% if 'Данные не найдены' in link %}
+            <p class="download">{{ link }}</p>
+        {% else %}
+            <p class="download"><a href="/download">Скачать</a></p>
+        {% endif %}
+    {% endfor %}
     <div class="table" id="table">
         <div class="columns header">
             <div class="column-2 column">Блок текста из статьи</div>
             <div class="column-3 column">Форматирование блока текста</div>
         </div>
         {% for link in data  %}
-        <div class="row-1 row"><a href="{{ link }}"><span>Ссылка на статью:</span> {{ link }}</a></div>
+            {% if 'Данные не найдены' in link %}
+                <div class="row-1 row"> {{ link }}</div>
+            {% else %}
+                <div class="row-1 row"><a href="{{ link }}"><span>Ссылка на статью:</span> {{ link }}</a></div>
+            {% endif %}
         {% for text in data[link]  %}
         <div class="rows">
                 <div class="row-2 row">{{ text }}</div>
